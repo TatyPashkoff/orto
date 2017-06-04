@@ -1,0 +1,458 @@
+<?php if (isset($model)): ?>
+	<!-- <head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<style>
+			.table-bordered>tbody>tr>th{text-align: center; background: #ddd; border: 1px solid #000; }
+			.table-bordered>tbody>tr>td{text-align: center;}
+			.first_td:nth-child(1){width:20%; }
+			td li{list-style-type:none }
+		</style>
+	</head> -->
+	<div style="page-break-after:always;">
+		<table>
+			<tr>
+				<td colspan="4" class="bold uc label">ЗАКАЗ-НАРЯД НА ПРОИЗВОДСТВО №<?php echo $model->num ?></td>
+				<td colspan="2" class="bold big uc label">ТОО &quot;SmartForce&quot;</td>
+			</tr>
+			<tr>
+				<td colspan="6"></td>
+			</tr>
+			<tr>
+				<td class="label">Дата</td>
+				<td colspan="4" class="border-bottom"><?php echo date('d.m.Y', strtotime($model->date)) ?></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="label">Код пациента</td>
+				<td colspan="4" class="border-bottom"><?php echo $model->pacient_code ?></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="label">ФИО Пациента</td>
+				<td colspan="4" class="border-bottom">XXX</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="label">Челюсть (В, Н, ВН)</td>
+				<td colspan="4" class="border-bottom"><?=$model->scull_type?></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td colspan="6"></td>
+			</tr>
+			<tr>
+				<td class="bold label">Наименование продукции</td>
+				<td colspan="5">X</td>
+			</tr>
+			<tr>
+				<td class="bold-border-left bold-border-top center middle" rowspan="2">Элайнер</td>
+				<td class="bold-border-left bold-border-top bold-border-right center" colspan="2">Коррекция</td>
+				<td class="bold-border-left bold-border-top bold-border-right center middle" rowspan="2">Ретейнер</td>
+				<td class="bold-border-left bold-border-top bold-border-right center middle" rowspan="2">Бесплатный элайнер</td>
+				<td class="bold-border-left bold-border-top bold-border-right center middle" rowspan="2">Клинические исследования</td>
+			</tr>
+			<tr>
+				<td class="bold-border-left border-top border-right center">Платная</td>
+				<td class="border-left border-top bold-border-right center">Бесплатная</td>
+			</tr>
+			<tr>
+				<td class="bold-border-top bold-border-left border-right bold-border-bottom center"></td>
+				<td class="bold-border-top border-right bold-border-bottom center"></td>
+				<td class="bold-border-top border-right bold-border-bottom center"></td>
+				<td class="bold-border-top border-right bold-border-bottom center"></td>
+				<td class="bold-border-top border-right bold-border-bottom center"></td>
+				<td class="bold-border-top bold-border-right bold-border-bottom center"></td>
+			</tr>
+			<tr>
+				<td colspan="6"></td>
+			</tr>
+			<tr>
+				<td class="bold label">Заказ</td>
+				<td colspan="5"></td>
+			</tr>
+			<tr>
+				<td class="bold-border center middle">Заказ</td>
+				<td class="bold-border center middle">Планируемое кол-во по ВП</td>
+				<td class="bold-border center middle">Количество на изготовление</td>
+				<td class="bold-border center middle">Этап ВЧ</td>
+				<td class="bold-border center middle">Этап НЧ</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="bold-border-left border-right border-bottom">Количество моделей</td>
+				<td class="border right"><?=$model->count_models_vp?></td>
+				<td class="border right"><?=$model->count_models?></td>
+				<td class="border right"><?=$model->count_models_vc?></td>
+				<td class="bold-border-right border-bottom right"><?=$model->count_models_nc?></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="bold-border-left border-right border-bottom">Количество элайнеров (кап)</td>
+				<td class="border right"><?=$model->count_elayners_vp?></td>
+				<td class="border right"><?=$model->count_elayners?></td>
+				<td class="border right"><?=$model->count_elayners_vc?></td>
+				<td class="bold-border-right border-bottom right"><?=$model->count_elayners_nc?></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="bold-border-left border-right border-bottom">Количество аттачментов (кап)</td>
+				<td class="border right"><?=$model->count_attachment_vp?></td>
+				<td class="border right"><?=$model->count_attachment?></td>
+				<td class="border right"><?=$model->count_attachment_vc?></td>
+				<td class="bold-border-right border-bottom right"><?=$model->count_attachment_nc?></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="bold-border-left border-right border-bottom">Количество Check-point (кап)</td>
+				<td class="border right"><?=$model->count_checkpoint_vp?></td>
+				<td class="border right"><?=$model->count_checkpoint?></td>
+				<td class="border right"><?=$model->count_checkpoint_vc?></td>
+				<td class="bold-border-right border-bottom right"><?=$model->count_checkpoint_nc?></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="bold-border-left border-right border-bottom">Количество ретейнеров (кап)</td>
+				<td class="border right"><?=$model->count_reteiners_vp?></td>
+				<td class="border right"><?=$model->count_reteiners?></td>
+				<td class="border right"><?=$model->count_reteiners_vc?></td>
+				<td class="bold-border-right border-bottom right"><?=$model->count_reteiners_nc?></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="bold-border-left border-right bold-border-bottom">Всего кап</td>
+				<td class="border-right bold-border-bottom right">
+					<?php echo $model->count_models_vp + $model->count_elayners_vp + $model->count_attachment_vp + $model->count_checkpoint_vp + $model->count_reteiners_vp?>
+				</td>
+				<td class="border-right bold-border-bottom right">
+					<?php echo $model->count_models + $model->count_elayners + $model->count_attachment + $model->count_checkpoint + $model->count_reteiners?>
+				</td>
+				<td class="border-right bold-border-bottom right">
+					<?php echo $model->count_models_vc + $model->count_elayners_vc + $model->count_attachment_vc + $model->count_checkpoint_vc + $model->count_reteiners_vc?>
+				</td>
+				<td class="bold-border-right bold-border-bottom right">
+					<?php echo $model->count_models_nc + $model->count_elayners_nc + $model->count_attachment_nc + $model->count_checkpoint_nc + $model->count_reteiners_nc?>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td colspan="6"></td>
+			</tr>
+			<tr>
+				<td class="bold-dashed italic center" colspan="6">Заполняется бухгалтером</td>
+			</tr>
+			<tr>
+				<td colspan="6" class="bold label">Стоимость по прайсу и предыдущие оплаты</td>
+			</tr>
+			<tr>
+				<td class="bold-border center middle bold" rowspan="2">Стоимость по прайсу</td>
+				<td class="bold-border center middle bold" rowspan="2">Стоимость с учетом скидки</td>
+				<td class="bold-border-top center middle bold" colspan="2">Оплата на дату заказа</td>
+				<td class="bold-border-left bold-border-top bold-border-right center middle bold" colspan="2">Элайнеры</td>
+			</tr>
+			<tr>
+				<td class="border-top center bold middle">План</td>
+				<td class="border-top border-left bold-border-bottom bold-border-right center bold middle">Факт</td>
+				<td class="border-top center bold-border-bottom bold middle">Отпущено</td>
+				<td class="border-top border-left bold-border-bottom bold-border-right center bold middle">Оплачено</td>
+			</tr>
+			<tr>
+				<td class="bold-border-left border-right bold-border-bottom"></td>
+				<td class="order-left border-right bold-border-bottom"></td>
+				<td class="bold-border-top border-left border-right bold-border-bottom"></td>
+				<td class="border-left border-right bold-border-bottom"></td>
+				<td class="border-left border-right bold-border-bottom"></td>
+				<td class="border-left bold-border-right bold-border-bottom"></td>
+			</tr>
+			<tr>
+				<td colspan="6"></td>
+			</tr>
+			<tr>
+				<td colspan="2" class="bold">Сумма задолженности (при наличии)</td>
+				<td class="border-bottom" colspan="2"></td>
+				<td colspan="2"</td>
+				</tr>
+				<tr>
+					<td colspan="6"></td>
+				</tr>
+				<tr>
+					<td class="bold-border bold center middle">Подлежит к оплате по заказу</td>
+					<td class="bold-border bold center middle">Оплачено по заказу</td>
+					<td class="bold-border bold center middle">Дата оплаты</td>
+					<td class="bold-border bold center middle">Долг по заказу</td>
+					<td class="bold-border bold center middle">Дата планируемого погашения</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td class="bold-border-left border-right bold-border-bottom"></td>
+					<td class="border-right bold-border-bottom"></td>
+					<td class="border-right bold-border-bottom"></td>
+					<td class="border-right bold-border-bottom"></td>
+					<td class="bold-border-right bold-border-bottom"></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td colspan="6"></td>
+				</tr>
+				<tr>
+					<td class="border-bottom center" colspan=2>Основание скидки/долга/бесплатного отпуска (при наличии)</td>
+					<td class="border-left border-bottom" colspan="3"></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td class="border-top border-bottom center" colspan="2">Разрешить печать со скидкой/долгом/бесплатно (подписывается руководителем)</td>
+					<td class="border-top border-bottom border-left"></td>
+					<td class="border-bottom" colspan="2"></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td colspan="6"></td>
+				</tr>
+				<tr>
+					<td class="bold">Бухгалтер</td>
+					<td class="border-bottom" colspan="2"></td>
+					<td></td>
+					<td class="border-bottom"></td>
+					<td</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>ФИО</td>
+					<td></td>
+					<td></td>
+					<td>Подпись</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td class="bold">Техник</td>
+					<td class="border-bottom" colspan="2"></td>
+					<td></td>
+					<td class="border-bottom"></td>
+					<td</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>ФИО</td>
+					<td></td>
+					<td></td>
+					<td>Подпись</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td class="bold">Руководитель</td>
+					<td class="border-bottom" colspan="2"></td>
+					<td></td>
+					<td class="border-bottom"></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>ФИО</td>
+					<td></td>
+					<td></td>
+					<td>Подпись</td>
+					<td></td>
+				</tr>
+			</table>
+		</div>
+
+
+
+
+		<div class="container">
+			<h4 class="text-right">Приложение № </h4>
+			<h4 class="text-right">к Договору №____ от «___» _______ 201___г.</h4>
+			<h3 class="clearfix"><a class="navbar-brand " href="#">«ORTHOLINER»</a></h3><br>
+			<h4><span class="pull-left">БЛАНК ЗАКАЗА на изготовление элайнеров №____</span>  		<span class="pull-right">«____»_____________ 201___г.</span></h4><br><br>
+			<table class="table table-bordered">
+				<tbody>
+					<tr> <th colspan="2">ПАСПОРТНАЯ ЧАСТЬ</th> </tr> <tr> <th colspan="2">ЗАКАЗЧИК</th> </tr>
+					<tr>
+						<td class="first_td">ФИО Врача</td>
+						<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit suscipit repellat aspernatur eum architecto omnis amet eos? Temporibus sint earum, autem recusandae fuga vitae eos excepturi sunt officia saepe alias?</td>
+					</tr>
+					<tr>
+						<td class="first_td">Специализация</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="first_td">Название Клиникиа</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="first_td">Телефон</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="first_td">e-mail</td>
+						<td></td>
+					</tr>
+
+					<tr> <th colspan="2">ПАЦИЕНТ</th> </tr>
+					<tr>
+						<td class="first_td">ФИО Пациента</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="first_td">Дата рождения</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="first_td">Пол</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="first_td">Диагноз</td>
+						<td></td>
+					</tr>
+
+					<tr>
+						<th colspan="2">ЗУБНАЯ ФОРМУЛА<br>
+							Сокращения исп. в таблице ниже: С – кариес; Р – пульпит; Pt – периодонтит;F – резорцин-формалиновый зуб; П – пломба; A –пародонтит, пародонтоз , в скобках (I-IV) - степень  подвижности; К – коронка; И – искусственный  зуб; О – отсутствующий зуб; R – корень; I –имплантат.
+						</th>
+					</tr>
+
+				</table>
+				<table class="table table-bordered ">
+					<tbody>
+						<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+						<tr><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+						<tr><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+						<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+					</tbody>
+				</table>
+				<table class="table table-bordered ">
+					<tbody>
+						<tr> <th colspan="7">ПЛАН ЛЕЧЕНИЯ</th> </tr>
+						<tr> <th colspan="7">ИСПРАВЛЕНИЕ ЗУБНОЙ ДУГИ</th> </tr>
+						<tr> <th rowspan="2">ЗУБНАЯ ДУГА</th> <th colspan="3">ВЕРХНЯЯ ЧЕЛЮСТЬ</th> <th colspan="3">НИЖНЯЯ ЧЕЛЮСТЬ</th> </tr>
+						<tr> <th>ОСТАВИТЬ КАК ЕСТЬ</th> <th>РАСШИРИТЬ</th> <th>СУЗИТЬ</th> <th>ОСТАВИТЬ КАК ЕСТЬ</th> <th>РАСШИРИТЬ</th> <th>СУЗИТЬ</th> </tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+				<table class="table table-bordered ">
+					<tbody>
+						<tr> <th colspan="10">Соотношение резцов</th> </tr>
+						<tr> <td rowspan="2">Соотношение резцов по трансверзали (средняя линия) </td> <td colspan="5">не менять</td> <td colspan="5">улучшить</td> </tr>
+						<tr> <td colspan="5"></td> <td colspan="5"></td> </tr>
+						<tr> <td rowspan="3">По Сагиттали</td> <td colspan="3">верхние</td> <td colspan="3">нижние</td> <td colspan="3">сагиттальная щель</td> </tr>
+						<tr> <td>Не менять</td> <td>Устранить протрузию</td> <td>Устранить ретрузию</td> <td>Не менять</td> <td>Устранить протрузию</td> <td>Устранить ретрузию</td> <td>Не менять</td> <td>Устранить протрузию</td> <td>Устранить ретрузию</td> </tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+				<table class="table table-bordered">
+					<tbody>
+						<tr> <th rowspan="3">ВЕРТИКАЛЬНОЕ ПЕРЕКРЫТИЕ</th> <th colspan="3">Верхние</th> <th colspan="3">Нижние</th> </tr>
+						<tr> <td>Не менять</td> <td>Интрузия</td> <td>Экструзия</td> <td>Не менять</td> <td>Интрузия</td> <td>Экструзия</td> </tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</tbody>	
+				</table> 
+				<table class="table table-bordered">
+					<tbody>
+						<tr><th colspan="7">СООТНОШЕНИЕ ЗУБОВ ПОСЛЕ ЛЕЧЕНИЯ (отметить)</th></tr>
+						<tr> <th>СООТНОШЕНИЕ ЗУБОВ</th> <th colspan="3">R</th> <th colspan="3">L</th> </tr>
+						<tr>
+							<td>ПЕРВЫХ МОЛЯРОВ</td>
+							<td>1</td>
+							<td>2</td>
+							<td>3</td>
+							<td>1</td>
+							<td>2</td>
+							<td>3</td>
+						</tr>
+						<tr> <th rowspan="2">ЗА СЧЕТ ЧЕГО? (способ) </th> <td colspan="2">Дистализация</td> <td colspan="2">Мезиализация</td> <td colspan="2">Сепарация</td> </tr>
+						<tr>
+							<td colspan="2"></td>
+							<td colspan="2"></td>
+							<td colspan="2"></td>
+						</tr>
+					</tbody>
+				</table>	
+				<table class="table table-bordered">
+					<tbody>
+						<tr><th colspan="16">УДАЛЕНИЕ (отметить планируемые к удалению зубы)</th></tr>
+						<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+						<tr><td>18</td><td>17</td><td>16</td><td>15</td><td>14</td><td>13</td><td>12</td><td>11</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td></tr>
+						<tr><td>48</td><td>47</td><td>46</td><td>45</td><td>44</td><td>43</td><td>42</td><td>41</td><td>31</td><td>32</td><td>33</td><td>34</td><td>35</td><td>36</td><td>37</td><td>38</td></tr>
+						<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+
+						<tr><th colspan="16">ЗУБЫ НЕТРЕБУЮЩИЕ ПЕРЕМЕЩЕНИЯ (отметить)</th></tr>
+						<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+						<tr><td>18</td><td>17</td><td>16</td><td>15</td><td>14</td><td>13</td><td>12</td><td>11</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td></tr>
+						<tr><td>48</td><td>47</td><td>46</td><td>45</td><td>44</td><td>43</td><td>42</td><td>41</td><td>31</td><td>32</td><td>33</td><td>34</td><td>35</td><td>36</td><td>37</td><td>38</td></tr>
+						<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+
+						<tr><th colspan="16">НЕВОЗМОЖНО УСТАНОВИТЬ АТТАЧМЕНТЫ (отметить)</th></tr>
+						<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+						<tr><td>18</td><td>17</td><td>16</td><td>15</td><td>14</td><td>13</td><td>12</td><td>11</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td></tr>
+						<tr><td>48</td><td>47</td><td>46</td><td>45</td><td>44</td><td>43</td><td>42</td><td>41</td><td>31</td><td>32</td><td>33</td><td>34</td><td>35</td><td>36</td><td>37</td><td>38</td></tr>
+						<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+
+						<tr><th colspan="16">ИЗМЕНИТЬ ПОЛОЖЕНИЕ ЗУБОВ</th></tr>
+						<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+						<tr><td>18</td><td>17</td><td>16</td><td>15</td><td>14</td><td>13</td><td>12</td><td>11</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td></tr>
+						<tr><td>48</td><td>47</td><td>46</td><td>45</td><td>44</td><td>43</td><td>42</td><td>41</td><td>31</td><td>32</td><td>33</td><td>34</td><td>35</td><td>36</td><td>37</td><td>38</td></tr>
+						<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+
+						<tr><th colspan="16">ПЛАНИРУЕМЫЕ ПРОТЕЗЫ / ИМПЛАНТЫ (отметить место и размеры в мм.)</th></tr>
+						<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+						<tr><td>18</td><td>17</td><td>16</td><td>15</td><td>14</td><td>13</td><td>12</td><td>11</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td></tr>
+						<tr><td>48</td><td>47</td><td>46</td><td>45</td><td>44</td><td>43</td><td>42</td><td>41</td><td>31</td><td>32</td><td>33</td><td>34</td><td>35</td><td>36</td><td>37</td><td>38</td></tr>
+						<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+						<tr> <th colspan="16">КОММЕНТАРИИ</th> </tr>
+
+						<tr>
+							<td colspan="16">
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus porro voluptate culpa suscipit soluta, neque reiciendis iste deserunt commodi maxime facere distinctio itaque reprehenderit tempora a alias, accusamus modi vel.
+								Hic cumque, odit tempore soluta, magni quod quae tempora odio amet. Rerum eum ipsa, nam iusto sunt autem fuga quam voluptates deleniti ipsam molestias officiis in commodi culpa temporibus. Dolores?
+								Eligendi molestiae commodi nihil rem dicta aperiam facilis, illum, harum odit reiciendis porro veritatis dolor ipsam eveniet repellat laudantium voluptatibus cumque? Amet vel, alias blanditiis nemo obcaecati aspernatur suscipit officia?
+								Ipsum cumque, deserunt dolorum vitae quo architecto, dignissimos odit delectus, debitis est autem non nostrum placeat hic quisquam maiores esse. Tenetur, inventore, amet. 
+							</td>
+						</tr>
+						<tr><th colspan="16">Врач предоставил</th></tr>
+						<tr>
+							<td colspan="16" style="padding:20px 40px">
+								<li class="text-left"><label><input type="checkbox"> Диагностические гипсовые модели</label></li>
+								<li class="text-left"><label><input type="checkbox"> Оттиски</label></li>
+								<li class="text-left"><label><input type="checkbox"> Прикусной валик</label></li>
+								<li class="text-left"><label><input type="checkbox"> Ортопантогмограмму/ Телерентгенограмма</label></li>
+								<li class="text-left"><label><input type="checkbox"> Фотографии Пациента анфас и профиль, улыбки Пациента, внутриротовой снимок слева, справа, центр</label></li>
+								<li class="text-left">Оплата в сумме: ___________ тенге</li>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<div>
+					<span>ФИО Врача__________________________</span>
+					<span class="pull-right">Подпись_________________________</span>
+					<div class="clearfix"></div><br>
+					<h5>Лаборатория <strong>«SmartForce»</strong>, 010000, г. Астана,  пр.Туран, 19/1, БЦ "ЭДЕМ", оф.505 Тел.: +7 (717) 246 -96-92, <i>info@ortholiner.kz</i></h5>
+				</div>
+			</div>				
+
+		<?php endif; ?>
